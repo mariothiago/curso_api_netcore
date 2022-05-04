@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Api.Domain.DTOs.User;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
@@ -53,7 +54,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UserEntity user)
+        public async Task<IActionResult> Post([FromBody] UserDtoCreate user)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -74,7 +75,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UserEntity user)
+        public async Task<IActionResult> Put([FromBody] UserDtoUpdate user)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
