@@ -23,7 +23,8 @@ public class DbTeste : IDisposable
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddDbContext<MyContext>( o => 
-            o.UseMySql(new MySqlServerVersion(new Version(8, 0, 2))),
+            o.UseMySql("server=localhost;port=3306;database=dbAPItest;uid=root;password=mario1107", 
+                new MySqlServerVersion(new Version(8, 0, 2))),
             ServiceLifetime.Transient
         );
 
